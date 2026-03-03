@@ -34,10 +34,9 @@ export PORT="$NC_PORT"
 # Database: use external URL or fall back to local SQLite
 if [ -n "$NC_DB" ]; then
   export NC_DB="$NC_DB"
-else
-  # SQLite stored in persistent data dir
-  export NC_DB="sqlite3:///$NC_DATA_DIR/noco.db?synchronous=NORMAL&journal_mode=WAL"
 fi
+# For SQLite (default), NocoDB creates noco.db automatically in NC_TOOL_DIR.
+# Do NOT set NC_DB for SQLite — NocoDB's parser fails on sqlite3:// URIs with query params.
 
 # JWT secret for NocoDB Auth
 if [ -n "$JWT_SECRET" ]; then

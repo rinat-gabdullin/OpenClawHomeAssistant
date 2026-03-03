@@ -1,5 +1,10 @@
 # Changelog
 
+## [1.0.7] - 2026-03-03
+
+### Fixed
+- Remove sqlite3:// URI from NC_DB — NocoDB fails to parse SQLite filenames with query parameters; SQLite DB is now created automatically by NocoDB in NC_TOOL_DIR
+
 ## [1.0.6] - 2026-03-03
 
 ### Changed
