@@ -1,0 +1,52 @@
+name: n8n
+version: "1.0.0"
+slug: n8n
+description: Workflow automation tool - connect anything to everything with n8n.
+url: https://n8n.io
+arch:
+  - amd64
+  - aarch64
+  - armv7
+startup: services
+boot: auto
+init: false
+hassio_api: false
+homeassistant_api: false
+host_network: false
+
+# Home Assistant Ingress (UI inside the add-on page)
+ingress: true
+ingress_port: 5678
+panel_title: n8n
+panel_icon: mdi:vector-combine
+
+ports:
+  5678/tcp: 5678
+
+ports_description:
+  5678/tcp: n8n Web UI & API
+
+map:
+  - addon_config:rw
+
+options:
+  timezone: "Europe/Sofia"
+  # n8n port (should match ingress_port)
+  port: 5678
+  # Optional: external webhook URL (e.g. "https://yourdomain.com")
+  webhook_url: ""
+  # Optional: set a fixed encryption key for credentials (leave empty to auto-generate)
+  encryption_key: ""
+  # Enable basic auth for the n8n UI
+  basic_auth_active: false
+  basic_auth_user: "admin"
+  basic_auth_password: ""
+
+schema:
+  timezone: str
+  port: int(1024,65535)?
+  webhook_url: str?
+  encryption_key: str?
+  basic_auth_active: bool?
+  basic_auth_user: str?
+  basic_auth_password: str?

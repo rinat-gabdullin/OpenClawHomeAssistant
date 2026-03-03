@@ -1,0 +1,51 @@
+name: NocoDB
+version: "1.0.0"
+slug: nocodb
+description: Open Source Airtable Alternative - turn any database into a smart spreadsheet.
+url: https://nocodb.com
+arch:
+  - amd64
+  - aarch64
+  - armv7
+startup: services
+boot: auto
+init: false
+hassio_api: false
+homeassistant_api: false
+host_network: false
+
+# Home Assistant Ingress (UI inside the add-on page)
+ingress: true
+ingress_port: 8080
+panel_title: NocoDB
+panel_icon: mdi:table-large
+
+ports:
+  8080/tcp: 8080
+
+ports_description:
+  8080/tcp: NocoDB Web UI
+
+map:
+  - addon_config:rw
+
+options:
+  timezone: "Europe/Sofia"
+  # NocoDB port (should match ingress_port)
+  port: 8080
+  # Optional: external database URL (leave empty to use built-in SQLite)
+  # Format examples:
+  #   pg: "pg://user:pass@host:5432/db"
+  #   mysql: "mysql2://user:pass@host:3306/db"
+  database_url: ""
+  # Optional: set a fixed JWT secret (leave empty to auto-generate)
+  jwt_secret: ""
+  # Optional: public URL for NocoDB (for correct link generation)
+  public_url: ""
+
+schema:
+  timezone: str
+  port: int(1024,65535)?
+  database_url: str?
+  jwt_secret: str?
+  public_url: str?

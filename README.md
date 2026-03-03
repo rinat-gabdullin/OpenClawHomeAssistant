@@ -1,13 +1,16 @@
-# OpenClaw Assistant – Home Assistant App/Add-on
+# OpenClaw – Home Assistant Add-ons Repository
 
 ## [Join our Discord Server!](https://discord.gg/Nx4H3XmY)
 ![OpenClaw Assistant](https://github.com/techartdev/OpenClawHomeAssistant/blob/main/oca_addon.png?raw=true)
 
-This repository contains a Home Assistant add-on that runs **OpenClaw** inside **Home Assistant OS (HAOS)**.
+This repository contains Home Assistant add-ons for **Home Assistant OS (HAOS)**.
 
+## Available Add-ons
+
+### OpenClaw Assistant
 > Upstream rename history (FYI): clawdbot → moltbot → **openclaw** (final).
 
-## Key Features
+Run **OpenClaw** inside Home Assistant.
 
 - **AI Gateway** — OpenClaw server with chat, skills, and automation capabilities
 - **Web Terminal** — browser-based terminal embedded in Home Assistant
@@ -15,6 +18,20 @@ This repository contains a Home Assistant add-on that runs **OpenClaw** inside *
 - **Browser Automation** — Chromium included for web scraping and automation skills
 - **Persistent Storage** — skills, config, and workspace survive add-on updates
 - **Bundled Tools** — git, vim, nano, bat, fd, ripgrep, curl, jq, python3, pnpm, Homebrew
+
+### n8n
+Powerful workflow automation tool. Connect anything to everything — trigger automations, integrate services, and build workflows with a visual editor. Data and credentials persist across restarts.
+
+- Visual workflow editor accessible via Home Assistant Ingress
+- SQLite by default; optional external DB support
+- Webhook endpoint support
+
+### NocoDB
+Open Source Airtable Alternative. Turn any database into a smart collaborative spreadsheet with a rich web UI.
+
+- Full NocoDB UI accessible via Home Assistant Ingress
+- SQLite by default; supports PostgreSQL and MySQL
+- REST & GraphQL API included
 
 ## Supported Architectures
 
@@ -35,7 +52,7 @@ This repository contains a Home Assistant add-on that runs **OpenClaw** inside *
 2. **⋮ → Repositories**
 3. Add this repo:
    - `https://github.com/techartdev/OpenClawHomeAssistant`
-4. Install **OpenClaw Assistant**
+4. Install any add-on from the list: **OpenClaw Assistant**, **n8n**, or **NocoDB**
 
 ## Support / Donations
 
