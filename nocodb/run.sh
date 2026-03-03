@@ -1,6 +1,9 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
+# Ensure npm global binaries (nocodb, etc.) are in PATH
+export PATH="$(npm config get prefix)/bin:${PATH}"
+
 OPTIONS_FILE="/data/options.json"
 
 if [ ! -f "$OPTIONS_FILE" ]; then

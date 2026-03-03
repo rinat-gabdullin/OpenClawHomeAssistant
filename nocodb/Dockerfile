@@ -24,7 +24,7 @@ RUN curl -fsSL https://deb.nodesource.com/setup_22.x | bash - \
 
 # Install NocoDB globally
 RUN npm install -g nocodb \
- && nocodb --version || true
+ && ls "$(npm config get prefix)/bin/nocodb"
 
 # Copy run script
 COPY run.sh /run.sh
