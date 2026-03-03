@@ -1,5 +1,10 @@
 # Changelog
 
+## [1.0.5] - 2026-03-03
+
+### Fixed
+- Launcher wrapper now reads the correct entrypoint from `package.json` `main` field instead of hardcoding `src/index.js`
+
 ## [1.0.4] - 2026-03-03
 
 ### Fixed

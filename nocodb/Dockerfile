@@ -35,12 +35,13 @@ RUN pnpm config set allow-build='*' --global
 # Install NocoDB globally with native modules
 RUN pnpm add -g nocodb
 
-# NocoDB registers no bin entry - create a launcher wrapper manually
+# NocoDB registers no bin entry - create a launcher wrapper using the package's own "main" entrypoint
 RUN NOCODB_DIR="$(pnpm root -g)/nocodb" \
- && echo "NocoDB installed at: ${NOCODB_DIR}" \
- && printf '#!/usr/bin/env node\nrequire("%s/src/index.js");\n' "${NOCODB_DIR}" > /usr/local/bin/nocodb \
- && chmod +x /usr/local/bin/nocodb \
- && node /usr/local/bin/nocodb --version 2>/dev/null || echo "launcher created"
+ && NOCODB_MAIN="$(node -e "console.log(require('${NOCODB_DIR}/package.json').main || 'src/index.js')")" \
+ && echo "NocoDB entry point: ${NOCODB_DIR}/${NOCODB_MAIN}" \
+ && ls "${NOCODB_DIR}/${NOCODB_MAIN}" \
+ && printf '#!/usr/bin/env node\nrequire("%s/%s");\n' "${NOCODB_DIR}" "${NOCODB_MAIN}" > /usr/local/bin/nocodb \
+ && chmod +x /usr/local/bin/nocodb
 
 # Copy run script
 COPY run.sh /run.sh
