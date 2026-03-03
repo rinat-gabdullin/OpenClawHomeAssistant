@@ -1,10 +1,6 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-# Ensure pnpm global binaries are in PATH (for pnpm itself if needed at runtime)
-export PNPM_HOME="/root/.local/share/pnpm"
-export PATH="${PNPM_HOME}:/usr/local/bin:${PATH}"
-
 OPTIONS_FILE="/data/options.json"
 
 if [ ! -f "$OPTIONS_FILE" ]; then
@@ -71,4 +67,4 @@ export NC_DISABLE_TELE="true"
 echo "Starting NocoDB on port ${NC_PORT}..."
 echo "Data directory: ${NC_DATA_DIR}"
 
-exec nocodb
+exec /usr/src/appEntry/start.sh

@@ -1,4 +1,2 @@
-build_from:
-  amd64: ghcr.io/home-assistant/amd64-base-debian:bookworm
-  aarch64: ghcr.io/home-assistant/aarch64-base-debian:bookworm
-  armv7: ghcr.io/home-assistant/armv7-base-debian:bookworm
+# NocoDB uses the official nocodb/nocodb Docker image directly.
+# No build_from needed - the image is multi-arch (amd64, arm64).

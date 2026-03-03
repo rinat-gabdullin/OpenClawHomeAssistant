@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.6] - 2026-03-03
+
+### Changed
+- Complete rewrite: use official `nocodb/nocodb:latest` Docker image instead of manual pnpm installation
+- Entrypoint now calls `/usr/src/appEntry/start.sh` from the official image
+- Removed all manual pnpm/npm install steps
+
 ## [1.0.5] - 2026-03-03
 
 ### Fixed

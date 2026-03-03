@@ -1,12 +1,11 @@
 name: NocoDB
-version: "1.0.5"
+version: "1.0.6"
 slug: nocodb
 description: Open Source Airtable Alternative - turn any database into a smart spreadsheet.
 url: https://nocodb.com
 arch:
   - amd64
   - aarch64
-  - armv7
 startup: services
 boot: auto
 init: false
