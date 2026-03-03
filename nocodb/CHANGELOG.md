@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.0.4] - 2026-03-03
+
+### Fixed
+- Allow pnpm build scripts globally (`allow-build=*`) so native modules (sqlite3, sharp, lz4) are compiled during build
+- NocoDB has no registered bin entry — create `/usr/local/bin/nocodb` wrapper that calls `node .../nocodb/src/index.js`
+
 ## [1.0.3] - 2026-03-03
 
 ### Fixed
