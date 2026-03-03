@@ -1,5 +1,10 @@
 # Changelog
 
+## [1.0.3] - 2026-03-03
+
+### Fixed
+- Set `PNPM_HOME` explicitly in Dockerfile so pnpm global bin directory is available during build and at runtime
+
 ## [1.0.2] - 2026-03-03
 
 ### Fixed

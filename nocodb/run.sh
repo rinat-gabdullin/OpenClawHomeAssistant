@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-# Ensure pnpm and npm global binaries are in PATH
-# pnpm global bin is typically /root/.local/share/pnpm or $(pnpm bin -g)
-export PATH="/root/.local/share/pnpm:$(npm config get prefix)/bin:${PATH}"
+# Ensure pnpm global binaries are in PATH
+export PNPM_HOME="/root/.local/share/pnpm"
+export PATH="${PNPM_HOME}:$(npm config get prefix)/bin:${PATH}"
 
 OPTIONS_FILE="/data/options.json"
 
