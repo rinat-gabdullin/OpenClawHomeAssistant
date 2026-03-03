@@ -1,8 +1,9 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-# Ensure npm global binaries (nocodb, etc.) are in PATH
-export PATH="$(npm config get prefix)/bin:${PATH}"
+# Ensure pnpm and npm global binaries are in PATH
+# pnpm global bin is typically /root/.local/share/pnpm or $(pnpm bin -g)
+export PATH="/root/.local/share/pnpm:$(npm config get prefix)/bin:${PATH}"
 
 OPTIONS_FILE="/data/options.json"
 

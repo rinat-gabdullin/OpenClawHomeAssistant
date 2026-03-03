@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.0.2] - 2026-03-03
+
+### Fixed
+- Install NocoDB via pnpm (resolves build error caused by `only-allow pnpm` preinstall check in `nocodb-sdk`)
+- Add pnpm global bin directory to PATH in run.sh
+
 ## [1.0.1] - 2026-03-03
 
 ### Fixed
