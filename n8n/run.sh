@@ -41,6 +41,9 @@ export N8N_LISTEN_ADDRESS="0.0.0.0"
 export N8N_DIAGNOSTICS_ENABLED="false"
 export N8N_VERSION_NOTIFICATIONS_ENABLED="false"
 
+# Required for HTTP (non-HTTPS) access, e.g. via HA Ingress
+export N8N_SECURE_COOKIE="false"
+
 # Encryption key for stored credentials
 if [ -n "$ENCRYPTION_KEY" ]; then
   export N8N_ENCRYPTION_KEY="$ENCRYPTION_KEY"
