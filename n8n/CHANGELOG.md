@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.0.2] - 2026-03-04
+
+### Added
+- New `host` option: set a reverse-proxy domain (e.g. `n8n.lostuser.net`) to automatically configure `WEBHOOK_URL` and `N8N_EDITOR_BASE_URL` as `https://<host>/`
+- Explicit `webhook_url` option still takes precedence over `host` when both are set
+
 ## [1.0.1] - 2026-03-03
 
 ### Fixed

@@ -14,6 +14,7 @@ fi
 
 TZNAME=$(jq -r '.timezone // "Europe/Sofia"' "$OPTIONS_FILE")
 NC_PORT=$(jq -r '.port // 8080' "$OPTIONS_FILE")
+HOST=$(jq -r '.host // ""' "$OPTIONS_FILE")
 NC_DB=$(jq -r '.database_url // ""' "$OPTIONS_FILE")
 JWT_SECRET=$(jq -r '.jwt_secret // ""' "$OPTIONS_FILE")
 PUBLIC_URL=$(jq -r '.public_url // ""' "$OPTIONS_FILE")
@@ -52,7 +53,16 @@ else
   export NC_AUTH_JWT_SECRET="$(cat "$SECRET_FILE")"
 fi
 
-# Public URL (optional)
+# External host / reverse-proxy domain (optional)
+# Derives NC_PUBLIC_URL from the host name when set.
+# An explicit public_url option always takes precedence.
+if [ -n "$HOST" ]; then
+  if [ -z "$PUBLIC_URL" ]; then
+    export NC_PUBLIC_URL="https://${HOST}"
+  fi
+fi
+
+# Public URL (explicit override, optional)
 if [ -n "$PUBLIC_URL" ]; then
   export NC_PUBLIC_URL="$PUBLIC_URL"
 fi

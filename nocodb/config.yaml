@@ -1,5 +1,5 @@
 name: NocoDB
-version: "1.0.7"
+version: "1.0.8"
 slug: nocodb
 description: Open Source Airtable Alternative - turn any database into a smart spreadsheet.
 url: https://nocodb.com
@@ -32,6 +32,11 @@ options:
   timezone: "Europe/Sofia"
   # NocoDB port (should match ingress_port)
   port: 8080
+  # Reverse-proxy host for NocoDB (e.g. "nocodb.example.com").
+  # Used to build NC_PUBLIC_URL (https://<host>) so that share links and
+  # attachments resolve correctly when NocoDB is behind a reverse proxy.
+  # Leave empty when accessing NocoDB only through Home Assistant Ingress.
+  host: ""
   # Optional: external database URL (leave empty to use built-in SQLite)
   # Format examples:
   #   pg: "pg://user:pass@host:5432/db"
@@ -39,12 +44,13 @@ options:
   database_url: ""
   # Optional: set a fixed JWT secret (leave empty to auto-generate)
   jwt_secret: ""
-  # Optional: public URL for NocoDB (for correct link generation)
+  # Optional: override NC_PUBLIC_URL explicitly (takes precedence over host)
   public_url: ""
 
 schema:
   timezone: str
   port: int(1024,65535)?
+  host: str?
   database_url: str?
   jwt_secret: str?
   public_url: str?

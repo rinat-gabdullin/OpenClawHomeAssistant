@@ -14,6 +14,7 @@ fi
 
 TZNAME=$(jq -r '.timezone // "Europe/Sofia"' "$OPTIONS_FILE")
 N8N_PORT=$(jq -r '.port // 5678' "$OPTIONS_FILE")
+HOST=$(jq -r '.host // ""' "$OPTIONS_FILE")
 WEBHOOK_URL=$(jq -r '.webhook_url // ""' "$OPTIONS_FILE")
 ENCRYPTION_KEY=$(jq -r '.encryption_key // ""' "$OPTIONS_FILE")
 BASIC_AUTH_ACTIVE=$(jq -r '.basic_auth_active // false' "$OPTIONS_FILE")
@@ -58,7 +59,19 @@ else
   export N8N_ENCRYPTION_KEY="$(cat "$KEY_FILE")"
 fi
 
-# Webhook URL (optional)
+# External host / reverse-proxy domain (optional)
+# Derives WEBHOOK_URL and N8N_EDITOR_BASE_URL from the host name when set.
+# An explicit webhook_url option always takes precedence.
+if [ -n "$HOST" ]; then
+  HOST_URL="https://${HOST}"
+  # Only set WEBHOOK_URL from host if not explicitly overridden
+  if [ -z "$WEBHOOK_URL" ]; then
+    export WEBHOOK_URL="${HOST_URL}/"
+  fi
+  export N8N_EDITOR_BASE_URL="${HOST_URL}/"
+fi
+
+# Webhook URL (explicit override, optional)
 if [ -n "$WEBHOOK_URL" ]; then
   export WEBHOOK_URL="$WEBHOOK_URL"
 fi

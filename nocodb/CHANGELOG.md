@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.0.8] - 2026-03-04
+
+### Added
+- New `host` option: set a reverse-proxy domain (e.g. `nocodb.lostuser.net`) to automatically configure `NC_PUBLIC_URL` as `https://<host>`
+- Explicit `public_url` option still takes precedence over `host` when both are set
+
 ## [1.0.7] - 2026-03-03
 
 ### Fixed

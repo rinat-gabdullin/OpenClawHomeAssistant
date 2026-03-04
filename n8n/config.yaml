@@ -1,5 +1,5 @@
 name: n8n
-version: "1.0.1"
+version: "1.0.2"
 slug: n8n
 description: Workflow automation tool - connect anything to everything with n8n.
 url: https://n8n.io
@@ -33,7 +33,12 @@ options:
   timezone: "Europe/Sofia"
   # n8n port (should match ingress_port)
   port: 5678
-  # Optional: external webhook URL (e.g. "https://yourdomain.com")
+  # Reverse-proxy host for n8n (e.g. "n8n.example.com").
+  # Used to build the external base URL (https://<host>) for webhooks and
+  # the editor when n8n sits behind a reverse proxy / Nginx Proxy Manager.
+  # Leave empty when accessing n8n only through Home Assistant Ingress.
+  host: ""
+  # Optional: override the webhook base URL explicitly (takes precedence over host)
   webhook_url: ""
   # Optional: set a fixed encryption key for credentials (leave empty to auto-generate)
   encryption_key: ""
@@ -45,6 +50,7 @@ options:
 schema:
   timezone: str
   port: int(1024,65535)?
+  host: str?
   webhook_url: str?
   encryption_key: str?
   basic_auth_active: bool?
