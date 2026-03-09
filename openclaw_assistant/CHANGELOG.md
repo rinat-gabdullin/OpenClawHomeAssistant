@@ -1,5 +1,10 @@
 # Changelog
 
+## [0.5.43] - 2026-03-09
+
+### Changed
+- Bump OpenClaw to 2026.3.8
+
 ## [0.5.42] - 2026-02-12
 
 ### Changed
