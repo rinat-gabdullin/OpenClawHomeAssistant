@@ -1,0 +1,52 @@
+name: iSponsorBlockTV
+version: "1.0.0"
+slug: isponsorblocktv
+description: SponsorBlock client for YouTube TV devices.
+url: https://github.com/dmunozv04/iSponsorBlockTV
+arch:
+  - amd64
+  - aarch64
+startup: application
+boot: auto
+init: false
+hassio_api: false
+homeassistant_api: false
+host_network: true
+
+map:
+  - addon_config:rw
+
+options:
+  timezone: "Europe/Sofia"
+  apikey: ""
+  devices: []
+  skip_categories:
+    - sponsor
+  skip_count_tracking: true
+  mute_ads: true
+  skip_ads: true
+  minimum_skip_length: 1
+  auto_play: true
+  join_name: "iSponsorBlockTV"
+  channel_whitelist: []
+  use_proxy: false
+
+schema:
+  timezone: str
+  apikey: password?
+  devices:
+    - screen_id: str
+      name: str?
+      offset: int?
+  skip_categories:
+    - str
+  skip_count_tracking: bool
+  mute_ads: bool
+  skip_ads: bool
+  minimum_skip_length: int?
+  auto_play: bool
+  join_name: str?
+  channel_whitelist:
+    - id: str
+      name: str?
+  use_proxy: bool?

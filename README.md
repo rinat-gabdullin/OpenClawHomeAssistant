@@ -1,11 +1,11 @@
-# OpenClaw – Home Assistant Add-ons Repository
+# OpenClaw – Home Assistant Apps Repository
 
 ## [Join our Discord Server!](https://discord.gg/Nx4H3XmY)
 ![OpenClaw Assistant](https://github.com/techartdev/OpenClawHomeAssistant/blob/main/oca_addon.png?raw=true)
 
-This repository contains Home Assistant add-ons for **Home Assistant OS (HAOS)**.
+This repository contains Home Assistant Apps for **Home Assistant OS (HAOS)**.
 
-## Available Add-ons
+## Available Apps
 
 ### OpenClaw Assistant
 > Upstream rename history (FYI): clawdbot → moltbot → **openclaw** (final).
@@ -33,13 +33,22 @@ Open Source Airtable Alternative. Turn any database into a smart collaborative s
 - SQLite by default; supports PostgreSQL and MySQL
 - REST & GraphQL API included
 
+### iSponsorBlockTV
+SponsorBlock client for YouTube TV devices. It connects to YouTube TV clients and automatically skips configured SponsorBlock segments in YouTube videos.
+
+- Skips sponsors, intros, outros, and other configured SponsorBlock categories
+- Can skip and/or mute YouTube ads where the YouTube TV client supports it
+- Multiple device support via Home Assistant app configuration
+- Host networking enabled for local device discovery and communication
+
 ## Supported Architectures
 
-| Architecture | Supported |
-|---|---|
-| amd64 | ✅ |
-| aarch64 (RPi 4/5) | ✅ |
-| armv7 (RPi 3) | ✅ |
+| App | amd64 | aarch64 (RPi 4/5) | armv7 (RPi 3) |
+|---|---:|---:|---:|
+| OpenClaw Assistant | ✅ | ✅ | ✅ |
+| n8n | ✅ | ✅ | ✅ |
+| NocoDB | ✅ | ✅ | ❌ |
+| iSponsorBlockTV | ✅ | ✅ | ❌ |
 
 ## Documentation
 
@@ -52,7 +61,7 @@ Open Source Airtable Alternative. Turn any database into a smart collaborative s
 2. **⋮ → Repositories**
 3. Add this repo:
    - `https://github.com/techartdev/OpenClawHomeAssistant`
-4. Install any add-on from the list: **OpenClaw Assistant**, **n8n**, or **NocoDB**
+4. Install any app from the list: **OpenClaw Assistant**, **n8n**, **NocoDB**, or **iSponsorBlockTV**
 
 ## Support / Donations
 
